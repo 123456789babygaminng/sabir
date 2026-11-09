@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+release/
+uia/bin/
+uia/obj/
+uia/dist/
+test/capture/
+test/mcp-smoke-exe.js
+*.log
+.DS_Store

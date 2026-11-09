@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; img-src 'self' data:">
+<title>Sabir</title>
+<link rel="stylesheet" href="base.css">
+<style>
+#root { width: 100vw; height: 100vh; box-sizing: border-box; background: #EDE4D3; border: 1px solid #D8CBB2; border-radius: 10px; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; overflow: hidden; }
+body.max #root { border-radius: 0; }
+.titlebar { height: 36px; flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; padding-left: 16px; border-bottom: 1px solid #D8CBB2; -webkit-app-region: drag; }
+.titlebar .t { font-size: 12px; color: #6B5F4E; }
+.wbtn { width: 46px; height: 36px; border: none; background: transparent; display: flex; align-items: center; justify-content: center; -webkit-app-region: no-drag; }
+.wbtn:hover { background: rgba(30, 28, 26, .06); }
+.wbtn.close:hover { background: #1E1C1A; }
+.wbtn.close:hover svg { stroke: #EDE4D3; }
+.side { width: 220px; flex-shrink: 0; box-sizing: border-box; border-right: 1px solid #D8CBB2; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; }
+.brand { display: flex; align-items: center; gap: 10px; padding: 0 6px 20px; }
+.brand .wm { font-family: 'Cinzel', serif; font-weight: 600; font-size: 18px; letter-spacing: 4px; color: #1E1C1A; }
+.nav { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 12px; border-radius: 8px; background: transparent; border: 1px solid transparent; text-decoration: none; font-size: 14px; font-weight: 500; color: #1E1C1A; }
+.nav:hover { color: #1E1C1A; background: rgba(246, 240, 228, .55); }
+.nav.on { background: #F6F0E4; border: 1px solid #D8CBB2; font-weight: 600; }
+.agents-box { margin-top: auto; padding: 12px; border: 1px solid #D8CBB2; border-radius: 8px; display: flex; align-items: center; gap: 8px; font-size: 12px; color: #6B5F4E; }
+.content { flex: 1; min-width: 0; padding: 28px 32px; display: flex; flex-direction: column; min-height: 0; }
+.head { display: flex; align-items: flex-end; justify-content: space-between; flex-shrink: 0; }
+.h1 { font-family: 'Cinzel', serif; font-weight: 600; font-size: 30px; color: #1E1C1A; margin-top: 4px; }
+.chips { display: flex; gap: 8px; }
+.chip { height: 32px; padding: 0 14px; border: 1px solid #D8CBB2; background: transparent; color: #1E1C1A; border-radius: 16px; font-size: 13px; font-weight: 500; }
+.chip:hover { background: rgba(246, 240, 228, .6); }
+.chip.on { border: none; background: #1E1C1A; color: #EDE4D3; }
+.grid { display: grid; grid-template-columns: 64px 100px 120px minmax(0, 1fr) 120px; gap: 12px; }
+.thead { padding: 22px 4px 10px; border-bottom: 1.5px solid #1E1C1A; font-size: 11px; flex-shrink: 0; }
+.rows { flex: 1; min-height: 0; overflow-y: auto; margin-right: -12px; padding-right: 12px; }
+.row { align-items: center; padding: 12px 4px; border-bottom: 1px solid #D8CBB2; font-size: 13px; color: #1E1C1A; }
+.row > div { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row .tm { color: #6B5F4E; font-variant-numeric: tabular-nums; }
+.row .ag { font-weight: 600; }
+.st { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; }
+.empty { padding: 22px 4px; font-size: 13px; color: #6B5F4E; line-height: 1.5; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; flex-shrink: 0; }
+.card { background: #F6F0E4; border: 1px solid #D8CBB2; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; }
+.card .num { font-family: 'Cinzel', serif; font-weight: 600; font-size: 30px; color: #1E1C1A; }
+.section { margin-top: 26px; }
+.link { font-size: 13px; font-weight: 500; text-decoration: none; }
+.set-row { display: flex; align-items: center; gap: 12px; padding: 12px 4px; border-bottom: 1px solid #D8CBB2; font-size: 13px; color: #1E1C1A; }
+.set-row .grow { flex: 1; min-width: 0; }
+.set-row .sub { font-size: 12px; color: #6B5F4E; margin-top: 2px; }
+.set-row .ok { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #3F7A6D; }
+.mono { font-variant-numeric: tabular-nums; user-select: text; cursor: text; }
+.scroll { flex: 1; min-height: 0; overflow-y: auto; margin-right: -12px; padding-right: 12px; }
+.note { font-size: 12px; color: #3F7A6D; font-weight: 500; }
+</style>
+</head>
+<body>
+<div id="root">
+  <div class="titlebar">
+    <div class="t">Sabir</div>
+    <div style="display: flex">
+      <button class="wbtn" aria-label="Minimize" data-act="window:minimize"></button>
+      <button class="wbtn" aria-label="Maximize" data-act="window:maximize"></button>
+      <button class="wbtn close" aria-label="Close" data-act="window:close"></button>
+    </div>
+  </div>
+  <div style="flex: 1; display: flex; min-height: 0">
+    <div class="side">
+      <div class="brand"><span id="logo"></span><div class="wm">SABIR</div></div>
+      <a class="nav" data-page="overview"></a>
+      <a class="nav" data-page="activity"></a>
+      <a class="nav" data-page="permissions"></a>
+      <a class="nav" data-page="settings"></a>
+      <div class="agents-box"><div class="dot green" id="agents-dot"></div><span id="agents-count">0 agents connected</span></div>
+    </div>
+    <div class="content" id="content"></div>
+  </div>
+</div>
+<script src="logo.js"></script>
+<script src="main-view.js"></script>
+</body></html>

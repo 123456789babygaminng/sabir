@@ -1,0 +1,36 @@
+@font-face { font-family: 'Cinzel'; src: url('fonts/Cinzel-VF.ttf') format('truetype'); font-weight: 400 900; }
+@font-face { font-family: 'Barlow Condensed'; src: url('fonts/BarlowCondensed-Medium.ttf') format('truetype'); font-weight: 500; }
+@font-face { font-family: 'Inter'; src: url('fonts/Inter-VF.ttf') format('truetype'); font-weight: 100 900; }
+
+html, body { margin: 0; background: transparent; overflow: hidden; }
+body { -webkit-font-smoothing: antialiased; user-select: none; cursor: default; }
+button { font-family: inherit; cursor: pointer; }
+a { color: #1E1C1A; cursor: pointer; }
+a:hover { color: #3F7A6D; }
+button:focus-visible, a:focus-visible { outline: 2px solid #3F7A6D; outline-offset: 2px; }
+
+.gA { transform-box: view-box; transform-origin: 140px 135px; animation: sA 18s linear infinite; }
+.gB { transform-box: view-box; transform-origin: 220.3px 78.8px; animation: sB 10s linear infinite; }
+.still .gA, .still .gB { animation-play-state: paused; }
+@keyframes sA { to { transform: rotate(360deg); } }
+@keyframes sB { to { transform: rotate(-360deg); } }
+
+.label { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 3px; color: #6B5F4E; }
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; box-sizing: border-box; }
+.dot.green { background: #3F7A6D; }
+.dot.muted { background: #6B5F4E; }
+.dot.brass { background: #B08D57; }
+.dot.hollow { border: 1.5px solid #6B5F4E; }
+.dot.hollow.ink { border-color: #1E1C1A; }
+
+.btn-primary { height: 42px; padding: 0 22px; border: none; background: #1E1C1A; color: #EDE4D3; border-radius: 8px; font-size: 14px; font-weight: 600; }
+.btn-primary:hover { background: #2E2B28; }
+.btn-outline { height: 36px; padding: 0 14px; border: 1.5px solid #1E1C1A; background: transparent; border-radius: 8px; font-size: 13px; font-weight: 600; color: #1E1C1A; }
+.btn-outline:hover { background: rgba(30, 28, 26, .05); }
+.btn-ghost { border: none; background: transparent; color: #6B5F4E; border-radius: 8px; font-weight: 500; }
+.btn-ghost:hover { color: #1E1C1A; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #D8CBB2; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C9B999; }

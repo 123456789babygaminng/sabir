@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'">
+<title>Sabir Setup</title>
+<link rel="stylesheet" href="base.css">
+<style>
+#root { width: 680px; height: 460px; box-sizing: border-box; background: #EDE4D3; border: 1px solid #D8CBB2; border-radius: 12px; font-family: 'Inter', sans-serif; display: flex; flex-direction: column; padding: 28px 32px; -webkit-app-region: drag; }
+button, .card { -webkit-app-region: no-drag; }
+.bar { width: 22px; height: 4px; border-radius: 2px; background: #D8CBB2; }
+.bar.on { background: #1E1C1A; }
+.h1 { font-family: 'Cinzel', serif; font-weight: 600; font-size: 30px; letter-spacing: 1px; color: #1E1C1A; margin-top: 18px; }
+.p { font-size: 14px; color: #6B5F4E; margin-top: 8px; line-height: 1.5; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
+.card { background: #F6F0E4; border: 1px solid #D8CBB2; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 6px; min-height: 150px; box-sizing: border-box; }
+.card.on { border: 2px solid #3F7A6D; }
+.card .n { font-size: 16px; font-weight: 600; color: #1E1C1A; }
+.card .d { font-size: 12px; color: #6B5F4E; line-height: 1.5; flex: 1; }
+.ok { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #3F7A6D; }
+.err { font-size: 12px; color: #1E1C1A; }
+.foot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
+.back { height: 42px; padding: 0 16px; border: none; background: transparent; font-size: 14px; font-weight: 500; color: #6B5F4E; }
+.back:hover { color: #1E1C1A; }
+.example { margin-top: 24px; background: #F6F0E4; border: 1px solid #D8CBB2; border-radius: 10px; padding: 18px; font-size: 14px; color: #1E1C1A; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="logo.js"></script>
+<script src="setup-view.js"></script>
+</body></html>
